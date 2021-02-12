@@ -3,16 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DFBF949E12E23A8C94CA8CF /* Pods_LFGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF98318D00507FC25001B6E0 /* Pods_LFGG.framework */; };
 		3CEFC65425CF53E000BA1EDF /* LFGGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */; };
 		3CEFC65625CF53E000BA1EDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65525CF53E000BA1EDF /* ContentView.swift */; };
 		3CEFC65825CF53E400BA1EDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC65725CF53E400BA1EDF /* Assets.xcassets */; };
 		3CEFC65B25CF53E400BA1EDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC65A25CF53E400BA1EDF /* Preview Assets.xcassets */; };
 		3CEFC66625CF53E400BA1EDF /* LFGGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC66525CF53E400BA1EDF /* LFGGTests.swift */; };
 		3CEFC67125CF53E400BA1EDF /* LFGGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC67025CF53E400BA1EDF /* LFGGUITests.swift */; };
+		3CEFC70C25D3F16800BA1EDF /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC70B25D3F16700BA1EDF /* AppColor.swift */; };
+		3CEFC71125D3F21300BA1EDF /* TabProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC71025D3F21300BA1EDF /* TabProfile.swift */; };
+		3CEFC71625D3F3EA00BA1EDF /* TabFriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC71525D3F3EA00BA1EDF /* TabFriendsList.swift */; };
+		3CEFC71B25D3F51900BA1EDF /* TabBrowse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC71A25D3F51900BA1EDF /* TabBrowse.swift */; };
+		3CEFC72025D3F59700BA1EDF /* TabFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC71F25D3F59700BA1EDF /* TabFeed.swift */; };
+		3CEFC72625D4029000BA1EDF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC72525D4029000BA1EDF /* User.swift */; };
+		3CEFC73225D4092C00BA1EDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC73125D4092C00BA1EDF /* GoogleService-Info.plist */; };
+		3CEFC79F25D535FD00BA1EDF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC79E25D535FD00BA1EDF /* Game.swift */; };
+		3CEFC7A425D558F600BA1EDF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC7A325D558F600BA1EDF /* Genre.swift */; };
+		68F9DB15FC6BF16AE8C68837 /* Pods_LFGG_LFGGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36146F59365C828000506C /* Pods_LFGG_LFGGUITests.framework */; };
+		C61F71ACC57A62E065B574D4 /* Pods_LFGGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845F98716B68AE116AD62D0E /* Pods_LFGGTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E7F4D6408B6A1FE851A9694 /* Pods-LFGGTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGGTests.release.xcconfig"; path = "Target Support Files/Pods-LFGGTests/Pods-LFGGTests.release.xcconfig"; sourceTree = "<group>"; };
 		3CEFC65025CF53E000BA1EDF /* LFGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGGApp.swift; sourceTree = "<group>"; };
 		3CEFC65525CF53E000BA1EDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +58,23 @@
 		3CEFC66C25CF53E400BA1EDF /* LFGGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LFGGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEFC67025CF53E400BA1EDF /* LFGGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGGUITests.swift; sourceTree = "<group>"; };
 		3CEFC67225CF53E400BA1EDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CEFC70B25D3F16700BA1EDF /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		3CEFC71025D3F21300BA1EDF /* TabProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProfile.swift; sourceTree = "<group>"; };
+		3CEFC71525D3F3EA00BA1EDF /* TabFriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFriendsList.swift; sourceTree = "<group>"; };
+		3CEFC71A25D3F51900BA1EDF /* TabBrowse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBrowse.swift; sourceTree = "<group>"; };
+		3CEFC71F25D3F59700BA1EDF /* TabFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFeed.swift; sourceTree = "<group>"; };
+		3CEFC72525D4029000BA1EDF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3CEFC73125D4092C00BA1EDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3CEFC79E25D535FD00BA1EDF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3CEFC7A325D558F600BA1EDF /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		57378C9997FF7BF228320BB6 /* Pods-LFGG-LFGGUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG-LFGGUITests.release.xcconfig"; path = "Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5E36146F59365C828000506C /* Pods_LFGG_LFGGUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFGG_LFGGUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F73CEAF3377CEB41DD0A2B /* Pods-LFGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG.debug.xcconfig"; path = "Target Support Files/Pods-LFGG/Pods-LFGG.debug.xcconfig"; sourceTree = "<group>"; };
+		845F98716B68AE116AD62D0E /* Pods_LFGGTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFGGTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABDFF7E290ADCB78FBCBF3F8 /* Pods-LFGG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG.release.xcconfig"; path = "Target Support Files/Pods-LFGG/Pods-LFGG.release.xcconfig"; sourceTree = "<group>"; };
+		AF98318D00507FC25001B6E0 /* Pods_LFGG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFGG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E51E9D8D89683D00BDE73A /* Pods-LFGGTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGGTests.debug.xcconfig"; path = "Target Support Files/Pods-LFGGTests/Pods-LFGGTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6272954375970E83AA7376B /* Pods-LFGG-LFGGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG-LFGGUITests.debug.xcconfig"; path = "Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DFBF949E12E23A8C94CA8CF /* Pods_LFGG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61F71ACC57A62E065B574D4 /* Pods_LFGGTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F9DB15FC6BF16AE8C68837 /* Pods_LFGG_LFGGUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +112,8 @@
 				3CEFC66425CF53E400BA1EDF /* LFGGTests */,
 				3CEFC66F25CF53E400BA1EDF /* LFGGUITests */,
 				3CEFC65125CF53E000BA1EDF /* Products */,
+				ADE1D57AC3C8B5305D334AB9 /* Pods */,
+				F9E835D9E7674A7E0A0B5E46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +130,10 @@
 		3CEFC65225CF53E000BA1EDF /* LFGG */ = {
 			isa = PBXGroup;
 			children = (
+				3CEFC73125D4092C00BA1EDF /* GoogleService-Info.plist */,
+				3CEFC72425D4028200BA1EDF /* Data */,
+				3CEFC68725CF569000BA1EDF /* Views */,
 				3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */,
-				3CEFC65525CF53E000BA1EDF /* ContentView.swift */,
 				3CEFC65725CF53E400BA1EDF /* Assets.xcassets */,
 				3CEFC65C25CF53E400BA1EDF /* Info.plist */,
 				3CEFC65925CF53E400BA1EDF /* Preview Content */,
@@ -130,6 +167,52 @@
 			path = LFGGUITests;
 			sourceTree = "<group>";
 		};
+		3CEFC68725CF569000BA1EDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CEFC65525CF53E000BA1EDF /* ContentView.swift */,
+				3CEFC71025D3F21300BA1EDF /* TabProfile.swift */,
+				3CEFC71525D3F3EA00BA1EDF /* TabFriendsList.swift */,
+				3CEFC71A25D3F51900BA1EDF /* TabBrowse.swift */,
+				3CEFC71F25D3F59700BA1EDF /* TabFeed.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3CEFC72425D4028200BA1EDF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3CEFC70B25D3F16700BA1EDF /* AppColor.swift */,
+				3CEFC72525D4029000BA1EDF /* User.swift */,
+				3CEFC79E25D535FD00BA1EDF /* Game.swift */,
+				3CEFC7A325D558F600BA1EDF /* Genre.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		ADE1D57AC3C8B5305D334AB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65F73CEAF3377CEB41DD0A2B /* Pods-LFGG.debug.xcconfig */,
+				ABDFF7E290ADCB78FBCBF3F8 /* Pods-LFGG.release.xcconfig */,
+				F6272954375970E83AA7376B /* Pods-LFGG-LFGGUITests.debug.xcconfig */,
+				57378C9997FF7BF228320BB6 /* Pods-LFGG-LFGGUITests.release.xcconfig */,
+				E5E51E9D8D89683D00BDE73A /* Pods-LFGGTests.debug.xcconfig */,
+				0E7F4D6408B6A1FE851A9694 /* Pods-LFGGTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F9E835D9E7674A7E0A0B5E46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF98318D00507FC25001B6E0 /* Pods_LFGG.framework */,
+				5E36146F59365C828000506C /* Pods_LFGG_LFGGUITests.framework */,
+				845F98716B68AE116AD62D0E /* Pods_LFGGTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CEFC67525CF53E400BA1EDF /* Build configuration list for PBXNativeTarget "LFGG" */;
 			buildPhases = (
+				613D4B5EFC57776BA5AB3971 /* [CP] Check Pods Manifest.lock */,
 				3CEFC64C25CF53E000BA1EDF /* Sources */,
 				3CEFC64D25CF53E000BA1EDF /* Frameworks */,
 				3CEFC64E25CF53E000BA1EDF /* Resources */,
+				35F23FC94203B3DF5ADCE085 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CEFC67825CF53E400BA1EDF /* Build configuration list for PBXNativeTarget "LFGGTests" */;
 			buildPhases = (
+				371877A5950731D061D41803 /* [CP] Check Pods Manifest.lock */,
 				3CEFC65D25CF53E400BA1EDF /* Sources */,
 				3CEFC65E25CF53E400BA1EDF /* Frameworks */,
 				3CEFC65F25CF53E400BA1EDF /* Resources */,
@@ -172,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CEFC67B25CF53E400BA1EDF /* Build configuration list for PBXNativeTarget "LFGGUITests" */;
 			buildPhases = (
+				8D2AA45F970261A61440EBE5 /* [CP] Check Pods Manifest.lock */,
 				3CEFC66825CF53E400BA1EDF /* Sources */,
 				3CEFC66925CF53E400BA1EDF /* Frameworks */,
 				3CEFC66A25CF53E400BA1EDF /* Resources */,
+				8F697FD48C08E649D503DFBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +323,7 @@
 			files = (
 				3CEFC65B25CF53E400BA1EDF /* Preview Assets.xcassets in Resources */,
 				3CEFC65825CF53E400BA1EDF /* Assets.xcassets in Resources */,
+				3CEFC73225D4092C00BA1EDF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +343,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35F23FC94203B3DF5ADCE085 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFGG/Pods-LFGG-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFGG/Pods-LFGG-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LFGG/Pods-LFGG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		371877A5950731D061D41803 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LFGGTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		613D4B5EFC57776BA5AB3971 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LFGG-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D2AA45F970261A61440EBE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LFGG-LFGGUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F697FD48C08E649D503DFBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3CEFC64C25CF53E000BA1EDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3CEFC65625CF53E000BA1EDF /* ContentView.swift in Sources */,
+				3CEFC79F25D535FD00BA1EDF /* Game.swift in Sources */,
 				3CEFC65425CF53E000BA1EDF /* LFGGApp.swift in Sources */,
+				3CEFC70C25D3F16800BA1EDF /* AppColor.swift in Sources */,
+				3CEFC71B25D3F51900BA1EDF /* TabBrowse.swift in Sources */,
+				3CEFC72625D4029000BA1EDF /* User.swift in Sources */,
+				3CEFC72025D3F59700BA1EDF /* TabFeed.swift in Sources */,
+				3CEFC71625D3F3EA00BA1EDF /* TabFriendsList.swift in Sources */,
+				3CEFC71125D3F21300BA1EDF /* TabProfile.swift in Sources */,
+				3CEFC7A425D558F600BA1EDF /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +614,7 @@
 		};
 		3CEFC67625CF53E400BA1EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65F73CEAF3377CEB41DD0A2B /* Pods-LFGG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -426,7 +627,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kimpi.lfgg.LFGG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimpi.lfgg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,6 +636,7 @@
 		};
 		3CEFC67725CF53E400BA1EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABDFF7E290ADCB78FBCBF3F8 /* Pods-LFGG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -447,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kimpi.lfgg.LFGG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimpi.lfgg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,6 +658,7 @@
 		};
 		3CEFC67925CF53E400BA1EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E51E9D8D89683D00BDE73A /* Pods-LFGGTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -477,6 +680,7 @@
 		};
 		3CEFC67A25CF53E400BA1EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E7F4D6408B6A1FE851A9694 /* Pods-LFGGTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +702,7 @@
 		};
 		3CEFC67C25CF53E400BA1EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6272954375970E83AA7376B /* Pods-LFGG-LFGGUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -517,6 +722,7 @@
 		};
 		3CEFC67D25CF53E400BA1EDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57378C9997FF7BF228320BB6 /* Pods-LFGG-LFGGUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

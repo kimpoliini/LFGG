@@ -7,7 +7,25 @@
 		<key>LFGG.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>20</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3CEFC64F25CF53E000BA1EDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3CEFC66025CF53E400BA1EDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3CEFC66B25CF53E400BA1EDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
