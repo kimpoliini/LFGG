@@ -10,6 +10,7 @@ import Firebase
 
 struct TabBrowse: View {
     let db = Firestore.firestore()
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationView(){
@@ -18,7 +19,7 @@ struct TabBrowse: View {
                 HStack{
                     Image(systemName: "magnifyingglass")
                     
-                    TextField("Search for games, groups etc", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Search for games, groups etc", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.vertical)
                 }

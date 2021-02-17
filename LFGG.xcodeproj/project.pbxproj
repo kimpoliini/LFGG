@@ -23,6 +23,9 @@
 		3CEFC73225D4092C00BA1EDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC73125D4092C00BA1EDF /* GoogleService-Info.plist */; };
 		3CEFC79F25D535FD00BA1EDF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC79E25D535FD00BA1EDF /* Game.swift */; };
 		3CEFC7A425D558F600BA1EDF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC7A325D558F600BA1EDF /* Genre.swift */; };
+		3CEFC7A925DC91D800BA1EDF /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC7A825DC91D800BA1EDF /* FirebaseAuthManager.swift */; };
+		3CEFC7AF25DC948900BA1EDF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC7AE25DC948900BA1EDF /* LoginView.swift */; };
+		3CEFC7B725DC998200BA1EDF /* CreateAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC7B625DC998200BA1EDF /* CreateAcountView.swift */; };
 		68F9DB15FC6BF16AE8C68837 /* Pods_LFGG_LFGGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E36146F59365C828000506C /* Pods_LFGG_LFGGUITests.framework */; };
 		C61F71ACC57A62E065B574D4 /* Pods_LFGGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845F98716B68AE116AD62D0E /* Pods_LFGGTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +70,9 @@
 		3CEFC73125D4092C00BA1EDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CEFC79E25D535FD00BA1EDF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3CEFC7A325D558F600BA1EDF /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		3CEFC7A825DC91D800BA1EDF /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		3CEFC7AE25DC948900BA1EDF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3CEFC7B625DC998200BA1EDF /* CreateAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAcountView.swift; sourceTree = "<group>"; };
 		57378C9997FF7BF228320BB6 /* Pods-LFGG-LFGGUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG-LFGGUITests.release.xcconfig"; path = "Target Support Files/Pods-LFGG-LFGGUITests/Pods-LFGG-LFGGUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E36146F59365C828000506C /* Pods_LFGG_LFGGUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFGG_LFGGUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F73CEAF3377CEB41DD0A2B /* Pods-LFGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFGG.debug.xcconfig"; path = "Target Support Files/Pods-LFGG/Pods-LFGG.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 				3CEFC71525D3F3EA00BA1EDF /* TabFriendsList.swift */,
 				3CEFC71A25D3F51900BA1EDF /* TabBrowse.swift */,
 				3CEFC71F25D3F59700BA1EDF /* TabFeed.swift */,
+				3CEFC7AE25DC948900BA1EDF /* LoginView.swift */,
+				3CEFC7B625DC998200BA1EDF /* CreateAcountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				3CEFC72525D4029000BA1EDF /* User.swift */,
 				3CEFC79E25D535FD00BA1EDF /* Game.swift */,
 				3CEFC7A325D558F600BA1EDF /* Genre.swift */,
+				3CEFC7A825DC91D800BA1EDF /* FirebaseAuthManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -457,8 +466,11 @@
 				3CEFC70C25D3F16800BA1EDF /* AppColor.swift in Sources */,
 				3CEFC71B25D3F51900BA1EDF /* TabBrowse.swift in Sources */,
 				3CEFC72625D4029000BA1EDF /* User.swift in Sources */,
+				3CEFC7AF25DC948900BA1EDF /* LoginView.swift in Sources */,
 				3CEFC72025D3F59700BA1EDF /* TabFeed.swift in Sources */,
+				3CEFC7A925DC91D800BA1EDF /* FirebaseAuthManager.swift in Sources */,
 				3CEFC71625D3F3EA00BA1EDF /* TabFriendsList.swift in Sources */,
+				3CEFC7B725DC998200BA1EDF /* CreateAcountView.swift in Sources */,
 				3CEFC71125D3F21300BA1EDF /* TabProfile.swift in Sources */,
 				3CEFC7A425D558F600BA1EDF /* Genre.swift in Sources */,
 			);

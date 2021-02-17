@@ -21,7 +21,7 @@ struct ContentView: View {
             TabProfile()
         }.onAppear(){
             createExampleGames()
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     func createExampleGames(){
