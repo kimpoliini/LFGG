@@ -6,18 +6,35 @@
 //
 
 import Foundation
-import SwiftUI
+import Firebase
 import FirebaseAuth
 
 class FirebaseAuthManager {
-    func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void){
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, err) in
-            if let user = authResult?.user{
-                print(user)
+    let db = Firestore.firestore()
+    
+    func createUser(user: User, password: String, completionBlock: @escaping (_ success: Bool) -> Void){
+        Auth.auth().createUser(withEmail: user.email!, password: password) { [self] (authResult, err) in
+            if let auth = authResult?.user{
+                print(auth.uid)
+                //add user to database
+                db.collection("users").document(auth.uid).setData(["username" : user.username!, "email" : user.email!], merge: true)
+                
                 completionBlock(true)
             } else {
-                print(err)
+                print(err!)
                 completionBlock(false)
+            }
+        }
+    }
+    
+    
+    func signInUser(email: String, password: String, completionBlock: @escaping (_ success: Bool, _ err: Error?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: password){ (result, err) in
+            if let err = err, let _ = AuthErrorCode(rawValue: err._code){
+                print(err)
+                completionBlock(false, err)
+            } else {
+                completionBlock(true, nil)
             }
         }
     }

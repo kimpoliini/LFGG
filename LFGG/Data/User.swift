@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct User {
-    let uid: String? = nil
+struct User: Hashable {
+    var uid: String? = nil
     var username: String? = nil
+    var email: String? = nil
     var profilePicUrl: String? = nil
-    var profileDescription: String = ""
-    var profileBackgroundColor: String? = nil
 }

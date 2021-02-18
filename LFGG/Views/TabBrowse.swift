@@ -10,16 +10,19 @@ import Firebase
 
 struct TabBrowse: View {
     let db = Firestore.firestore()
-    @State private var searchText: String = ""
+    @State var searchText: String = ""
     
     var body: some View {
-        NavigationView(){
             VStack{
                 //Search field
                 HStack{
-                    Image(systemName: "magnifyingglass")
+                    NavigationLink(
+                        destination: SearchView(query: searchText),
+                        label: {
+                            Image(systemName: "magnifyingglass")
+                        })
                     
-                    TextField("Search for games, groups etc", text: $searchText)
+                    TextField("Search for users, games etc", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.vertical)
                 }
@@ -109,11 +112,6 @@ struct TabBrowse: View {
             }
             .navigationTitle("Browse")
             .padding()
-        }
-        .tabItem {
-            Image(systemName: "magnifyingglass")
-            Text("Browse")
-        }
     }
     
     //    func getGames(mode: String, completion:(_ games:[Game]) -> Void)  {
@@ -282,7 +280,7 @@ struct GameList: View {
     var body: some View {
         VStack{
             List(){
-                ForEach(games, id: \.self){game in
+                ForEach(games, id: \.self){ game in
                     Text(game)
                 }
             }

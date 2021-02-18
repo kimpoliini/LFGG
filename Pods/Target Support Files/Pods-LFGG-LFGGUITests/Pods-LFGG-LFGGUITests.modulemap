@@ -1,0 +1,6 @@
+framework module Pods_LFGG_LFGGUITests {
+  umbrella header "Pods-LFGG-LFGGUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -28,12 +28,10 @@ struct CreateAcountView: View {
             SecureField("Password", text: $password)
                 .padding(.vertical)
             
-            Button(action: {
+            Button("Create") {
                 createUser()
-                print("button pressed")
-            }, label: {
-                Text("Create")
-            })
+            }
+            
             Spacer()
         }
         .padding()
@@ -45,11 +43,18 @@ struct CreateAcountView: View {
     
     func createUser(){
         if !email.isEmpty || !password.isEmpty {
-            authManager.createUser(email: email, password: password){ success in
+            //creates a new User then sends it to a helper class to make authenticate it in firebase
+            let newUser = User(username: username, email: email)
+            
+            authManager.createUser(user: newUser, password: password){ success in
                 
                 var message: String = ""
                 if (success) {
                     message = "User was sucessfully created"
+                    username = ""
+                    email = ""
+                    password = ""
+                    
                 } else {
                     message = "There was an error."
                 }
@@ -60,8 +65,6 @@ struct CreateAcountView: View {
         }
     }
 }
-
-
 
 struct CreateAcountView_Previews: PreviewProvider {
     static var previews: some View {

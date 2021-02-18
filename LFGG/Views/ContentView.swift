@@ -9,19 +9,42 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    var db = Firestore.firestore()
-    
-    
+    var db = Firestore.firestore()    
     
     var body: some View {
         TabView{
-            TabFeed()
-            TabBrowse()
-            TabFriendsList()
-            TabProfile()
-        }.onAppear(){
+            NavigationView(){
+                TabFeed()
+            }.tabItem {
+                Image(systemName: "gamecontroller")
+                Text("Feed")
+            }
+
+            NavigationView(){
+                TabBrowse()
+            }.tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Browse")
+            }
+            
+            NavigationView(){
+                TabFriendsList()
+            }.tabItem {
+                Image(systemName: "person.2")
+                Text("Friends")
+            }
+            
+            NavigationView(){
+                TabProfile()
+            }.tabItem {
+                Image(systemName: "person")
+                Text("Profile")
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear(){
             createExampleGames()
-        }.navigationBarBackButtonHidden(true)
+        }
     }
     
     func createExampleGames(){
