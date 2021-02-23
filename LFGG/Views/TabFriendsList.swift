@@ -16,20 +16,18 @@ struct TabFriendsList: View {
     var body: some View {
         List(){
             ForEach(friends, id: \.self){ friend in
-//                NavigationLink(
-//                    destination: Text(friend)){
                     RowViewFriend(name: friend)
-//                }
             }
         }
         .onAppear(){
             
-            friends.removeAll()
             
             db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").getDocuments(){ (snapshot, err) in
                 if let err = err{
                     print(err)
                 } else {
+                    friends.removeAll()
+
                     for document in snapshot!.documents {
                         let friend = document["username"] as! String
                         friends.append(friend)
@@ -39,21 +37,9 @@ struct TabFriendsList: View {
             
         }
         .navigationTitle("Friends")
-//        .tabItem {
-//            Image(systemName: "person.2")
-//            Text("Friends")
-//        }
+
     }
 }
-
-//func addMockFriends(_ count: Int) -> [String] {
-//    var friendsList = [String]()
-//
-//    for i in 1...count{
-//        friendsList.append("Friend \(i)")
-//    }
-//    return friendsList
-//}
 
 struct TabFriendsList_Previews: PreviewProvider {
     static var previews: some View {

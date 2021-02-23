@@ -59,7 +59,9 @@ struct ContentView: View {
         .onAppear(){
             if let uid = Auth.auth().currentUser?.uid {
                 print(uid)
-                loginManager.isLoggedIn = true
+                
+                loginManager.updateCurrentUser()
+
             }
         }
     }

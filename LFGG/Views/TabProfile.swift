@@ -26,7 +26,7 @@ struct TabProfile: View {
                     
                     VStack{
                         HStack{
-                            Text(currentUser.username!)
+                            Text(loginManager.currentUser != nil ? loginManager.currentUser!.username! : "username")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)

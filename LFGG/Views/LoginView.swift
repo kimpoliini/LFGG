@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     let authManager = FirebaseAuthManager()
+    let db = Firestore.firestore()
     
     @State private var showingAlert = false
     @State private var alert: Alert? = nil
@@ -53,6 +54,7 @@ struct LoginView: View {
             authManager.signInUser(email: email, password: password){ (success, err) in
                 
                 if (success) {
+                    loginManager.updateCurrentUser()
                     loginManager.isLoggedIn = true
                     email = ""
                     password = ""
