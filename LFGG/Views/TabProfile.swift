@@ -9,8 +9,6 @@ import SwiftUI
 import Firebase
 
 struct TabProfile: View {
-//    let db = Firestore.firestore()
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let db = Firestore.firestore()
     @State var currentUser = User(username: "username")
     @EnvironmentObject var loginManager: LoginManager
@@ -81,7 +79,6 @@ struct TabProfile: View {
                 }
                 catch { print("already logged out") }
                 
-//                self.presentationMode.wrappedValue.dismiss()
             }
             
         }

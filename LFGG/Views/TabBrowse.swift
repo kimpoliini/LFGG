@@ -23,6 +23,8 @@ struct TabBrowse: View {
                         })
                     
                     TextField("Search for users, games etc", text: $searchText)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.vertical)
                 }

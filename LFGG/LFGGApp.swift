@@ -11,16 +11,13 @@ import Firebase
 @main
 struct LFGGApp: App {
     
-    
-    @EnvironmentObject var loginManager: LoginManager
-    
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ContentView()
         }
     }
 }

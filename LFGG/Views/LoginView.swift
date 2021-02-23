@@ -16,14 +16,9 @@ struct LoginView: View {
     @State private var showingAlert = false
     @State private var alert: Alert? = nil
     
-    @StateObject var loginManager = LoginManager()
-    
+    @EnvironmentObject var loginManager: LoginManager
     
     var body: some View {
-        NavigationView(){
-        if loginManager.isLoggedIn {
-            ContentView()
-        } else {
                 VStack{
                     Spacer()
                     TextField("Email", text: $email)
@@ -51,15 +46,6 @@ struct LoginView: View {
                     alert!
                 }
             }
-        }
-            .environmentObject(loginManager)
-            .onAppear(){
-                if let uid = Auth.auth().currentUser?.uid {
-                    print(uid)
-                    loginManager.isLoggedIn = true
-                }
-        }
-    }
     
     func signInUser(){
         if !email.isEmpty || !password.isEmpty {

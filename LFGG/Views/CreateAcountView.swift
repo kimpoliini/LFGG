@@ -22,8 +22,12 @@ struct CreateAcountView: View {
         VStack{
             Spacer()
             TextField("Username", text: $username)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .padding(.vertical)
             TextField("Email", text: $email)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .padding(.vertical)
             SecureField("Password", text: $password)
                 .padding(.vertical)

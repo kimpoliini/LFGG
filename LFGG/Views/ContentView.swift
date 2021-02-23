@@ -10,8 +10,12 @@ import Firebase
 
 struct ContentView: View {
     var db = Firestore.firestore()
+    @StateObject var loginManager = LoginManager()
     
     var body: some View {
+        ZStack{
+            if loginManager.isLoggedIn {
+            
             TabView{
                 NavigationView(){
                     TabFeed()
@@ -27,10 +31,9 @@ struct ContentView: View {
                     Text("Browse")
                 }
                 
-//                NavigationView(){
+                NavigationView(){
                     TabFriendsList()
-//                }
-                .tabItem {
+                }.tabItem {
                     Image(systemName: "person.2")
                     Text("Friends")
                 }
@@ -45,6 +48,20 @@ struct ContentView: View {
             .onAppear(){
                 createExampleGames()
             }
+        } else {
+            NavigationView(){
+                LoginView()
+            }
+        }
+            
+        }
+        .environmentObject(loginManager)
+        .onAppear(){
+            if let uid = Auth.auth().currentUser?.uid {
+                print(uid)
+                loginManager.isLoggedIn = true
+            }
+        }
     }
     
     func createExampleGames(){
