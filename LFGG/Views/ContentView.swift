@@ -9,42 +9,42 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    var db = Firestore.firestore()    
+    var db = Firestore.firestore()
     
     var body: some View {
-        TabView{
-            NavigationView(){
-                TabFeed()
-            }.tabItem {
-                Image(systemName: "gamecontroller")
-                Text("Feed")
+            TabView{
+                NavigationView(){
+                    TabFeed()
+                }.tabItem {
+                    Image(systemName: "gamecontroller")
+                    Text("Feed")
+                }
+                
+                NavigationView(){
+                    TabBrowse()
+                }.tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Browse")
+                }
+                
+//                NavigationView(){
+                    TabFriendsList()
+//                }
+                .tabItem {
+                    Image(systemName: "person.2")
+                    Text("Friends")
+                }
+                
+                NavigationView(){
+                    TabProfile()
+                }.tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
+                }
             }
-
-            NavigationView(){
-                TabBrowse()
-            }.tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Browse")
+            .onAppear(){
+                createExampleGames()
             }
-            
-            NavigationView(){
-                TabFriendsList()
-            }.tabItem {
-                Image(systemName: "person.2")
-                Text("Friends")
-            }
-            
-            NavigationView(){
-                TabProfile()
-            }.tabItem {
-                Image(systemName: "person")
-                Text("Profile")
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .onAppear(){
-            createExampleGames()
-        }
     }
     
     func createExampleGames(){

@@ -11,6 +11,9 @@ import Firebase
 struct TabProfile: View {
 //    let db = Firestore.firestore()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    let db = Firestore.firestore()
+    @State var currentUser = User(username: "username")
+    @EnvironmentObject var loginManager: LoginManager
     
     var body: some View {
         VStack{
@@ -25,7 +28,7 @@ struct TabProfile: View {
                     
                     VStack{
                         HStack{
-                            Text("username")
+                            Text(currentUser.username!)
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -72,18 +75,33 @@ struct TabProfile: View {
             Spacer()
             
             Button("Log out"){
-                do { try Auth.auth().signOut() }
+                do {
+                    try Auth.auth().signOut()
+                    loginManager.isLoggedIn = false
+                }
                 catch { print("already logged out") }
-                self.presentationMode.wrappedValue.dismiss()
+                
+//                self.presentationMode.wrappedValue.dismiss()
             }
             
         }
         .navigationTitle("Profile")
         .padding()
-//        .tabItem {
-//            Image(systemName: "person")
-//            Text("Profile")
-//        }
+        .onAppear(){
+            db.collection("users")
+                .document(Auth.auth()
+                .currentUser!.uid)
+                .getDocument(){ document, err in
+                    if let err = err {
+                        print(err)
+                    } else {
+                        let dbUsername = document!["username"] as! String
+                        
+                        currentUser = User(uid: Auth.auth().currentUser!.uid, username: dbUsername)
+                    }
+                    
+                }
+        }
     }
 }
 

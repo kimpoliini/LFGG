@@ -8,28 +8,19 @@
 import SwiftUI
 import Firebase
 
-
 @main
 struct LFGGApp: App {
     
-    var isLoggedIn = false
+    
+    @EnvironmentObject var loginManager: LoginManager
     
     init() {
         FirebaseApp.configure()
-        
-        if let uid = Auth.auth().currentUser?.uid {
-            print(uid)
-            isLoggedIn = true
-        }
     }
     
     var body: some Scene {
         WindowGroup {
-            if isLoggedIn {
-                ContentView()
-            } else {
-                LoginView()
-            }
+            LoginView()
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @State private var email: String = ""
@@ -15,35 +16,48 @@ struct LoginView: View {
     @State private var showingAlert = false
     @State private var alert: Alert? = nil
     
-    @State private var isLoggedIn = false
+    @StateObject var loginManager = LoginManager()
+    
     
     var body: some View {
         NavigationView(){
-            VStack{
-                Spacer()
-                TextField("Email", text: $email)
-                    .padding(.vertical)
-                TextField("Password", text: $password)
-                    .textContentType(.password)
-                    .padding(.vertical)
-                
-                
-                Button("Sign in"){
-                    signInUser()
+        if loginManager.isLoggedIn {
+            ContentView()
+        } else {
+                VStack{
+                    Spacer()
+                    TextField("Email", text: $email)
+                        .padding(.vertical)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $password)
+                        .textContentType(.password)
+                        .padding(.vertical)
+                    
+                    
+                    Button("Sign in"){
+                        signInUser()
+                    }
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: CreateAcountView()){
+                        Text("Create an account")
+                            .foregroundColor(.blue)
+                    }
                 }
-                NavigationLink(destination: ContentView(), isActive: $isLoggedIn) { EmptyView() }
-
-                Spacer()
-                
-                NavigationLink(destination: CreateAcountView()){
-                    Text("Create an account")
-                        .foregroundColor(.blue)
+                .padding()
+                .alert(isPresented: $showingAlert){
+                    alert!
                 }
             }
-            .padding()
-            .alert(isPresented: $showingAlert){
-                alert!
-            }
+        }
+            .environmentObject(loginManager)
+            .onAppear(){
+                if let uid = Auth.auth().currentUser?.uid {
+                    print(uid)
+                    loginManager.isLoggedIn = true
+                }
         }
     }
     
@@ -53,14 +67,17 @@ struct LoginView: View {
             authManager.signInUser(email: email, password: password){ (success, err) in
                 
                 if (success) {
-                    isLoggedIn = true
-                    
+                    loginManager.isLoggedIn = true
+                    email = ""
+                    password = ""
                 } else {
                     
                     let errorMessage: String = "\(err)"
                     
                     alert = Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
-                    showingAlert = true                }
+                    showingAlert = true
+                    
+                }
             }
             
         } else {
