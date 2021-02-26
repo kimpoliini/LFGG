@@ -10,7 +10,8 @@ import Firebase
 
 struct TabProfile: View {
     let db = Firestore.firestore()
-    @State var currentUser = User(username: "username")
+    @State var currentUser = User()
+    @State var currentUserProfile = Profile()
     @EnvironmentObject var loginManager: LoginManager
     
     var body: some View {
@@ -26,14 +27,14 @@ struct TabProfile: View {
                     
                     VStack{
                         HStack{
-                            Text(loginManager.currentUser != nil ? loginManager.currentUser!.username! : "username")
+                            Text(loginManager.currentUser != nil ? loginManager.currentUser!.displayName! : "display name")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             Spacer()
                         }
                         HStack{
-                            Text("Title?")
+                            Text(loginManager.currentUser != nil ? "@"  + loginManager.currentUser!.username! : "username")
                                 .foregroundColor(.white)
                             Spacer()
                         }
@@ -41,13 +42,13 @@ struct TabProfile: View {
                     Spacer()
                 }
                 
-                Text("\"Short description about or quote from this user, can be several lines long if needed.\"")
+                Text(loginManager.currentUserProfile != nil ? loginManager.currentUserProfile!.description! : "description")
                     .fontWeight(.light)
                     .foregroundColor(.white)
                     .padding(.vertical)
             }
             .padding()
-            .background(Color.blue)
+            .background(loginManager.currentUserProfile != nil ? loginManager.currentUserProfile!.backgroundColor! : Color(.systemBlue))
             .cornerRadius(12.0)
             .shadow(radius: 8)
             
@@ -73,31 +74,60 @@ struct TabProfile: View {
             Spacer()
             
             Button("Log out"){
-                do {
-                    try Auth.auth().signOut()
-                    loginManager.isLoggedIn = false
+                if !loginManager.isGettingData{
+                    do {
+                        try Auth.auth().signOut()
+                        loginManager.isLoggedIn = false
+                    }
+                    catch { print("already logged out") }
                 }
-                catch { print("already logged out") }
-                
             }
-            
         }
+        .navigationBarItems(trailing:
+            NavigationLink(
+                destination: EditProfileView(),
+                label: {
+                    Image(systemName: "pencil")
+                }))
+        
         .navigationTitle("Profile")
         .padding()
         .onAppear(){
-            db.collection("users")
+            let userRef = db.collection("users")
                 .document(Auth.auth()
                 .currentUser!.uid)
+            
+            userRef.getDocument(){ document, err in
+                if let err = err {
+                    print(err)
+                } else {
+                    let dbDisplayName = document!["displayName"] as! String
+                    let dbUsername = document!["username"] as! String
+                    
+                    currentUser = User(uid: Auth.auth().currentUser!.uid, displayName: dbDisplayName, username: dbUsername)
+                }
+            }
+            userRef.collection("profile")
+                .document("profile")
                 .getDocument(){ document, err in
-                    if let err = err {
-                        print(err)
-                    } else {
-                        let dbUsername = document!["username"] as! String
-                        
-                        currentUser = User(uid: Auth.auth().currentUser!.uid, username: dbUsername)
+                if let err = err {
+                    print(err)
+                } else {
+                    let description = document!["description"] as! String
+                    let backgroundColorString = document!["backgroundColor"] as! String
+                    var backgroundColor: Color {
+                        switch backgroundColorString {
+                        case "lightBlue":
+                            return Color(.systemBlue)
+                        default:
+                            return Color(.systemBlue)
+                        }
                     }
+                    currentUserProfile = Profile(description: description, backgroundColor: backgroundColor)
                     
                 }
+            }
+            
         }
     }
 }

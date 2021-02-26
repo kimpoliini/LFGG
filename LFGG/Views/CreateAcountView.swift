@@ -10,8 +10,10 @@ import SwiftUI
 struct CreateAcountView: View {
     
     @State private var username: String = ""
+    @State private var displayName: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
+
     
     @State private var showingAlert = false
     @State private var alert: Alert? = nil
@@ -21,16 +23,29 @@ struct CreateAcountView: View {
     var body: some View {
         VStack{
             Spacer()
+            
             TextField("Username", text: $username)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .padding(.vertical)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
+            TextField("Display name (optional)", text: $displayName)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
             TextField("Email", text: $email)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .padding(.vertical)
+                .padding(.horizontal)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+
             SecureField("Password", text: $password)
-                .padding(.vertical)
+                .padding(.horizontal)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+
             
             Button("Create") {
                 createUser()
@@ -48,7 +63,7 @@ struct CreateAcountView: View {
     func createUser(){
         if !email.isEmpty || !password.isEmpty {
             //creates a new User then sends it to a helper class to make authenticate it in firebase
-            let newUser = User(username: username, email: email)
+            let newUser = User(displayName: displayName, username: username, email: email)
             
             authManager.createUser(user: newUser, password: password){ success in
                 

@@ -9,6 +9,7 @@ import Foundation
 
 struct User: Hashable {
     var uid: String? = nil
+    var displayName: String? = nil
     var username: String? = nil
     var email: String? = nil
     var profilePicUrl: String? = nil

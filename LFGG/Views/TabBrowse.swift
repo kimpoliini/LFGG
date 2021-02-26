@@ -97,7 +97,7 @@ struct TabBrowse: View {
                             label: {
                                 ZStack{
                                     
-                                    Color.black
+                                    Color.gray
                                         .frame(width: 160, height: 160, alignment: .center)
                                     Image(systemName: "desktopcomputer")
                                         .resizable()
@@ -141,7 +141,6 @@ func getGames(mode: String) -> [String]{
             print("Error getting documents: \(err)")
         } else {
             for document in snapshot!.documents {
-                //                print("\(document.documentID) => \(document.data())")
                 let game = document["title"] as! String
                 gameList.append(game)
             }
@@ -167,7 +166,7 @@ struct FindGameBy: View {
         case "switch":
             return AppColor.switchRed
         case "pc":
-            return .black
+            return .gray
         default:
             return .white
         }

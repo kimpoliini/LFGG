@@ -58,8 +58,7 @@ struct ContentView: View {
         .environmentObject(loginManager)
         .onAppear(){
             if let uid = Auth.auth().currentUser?.uid {
-                print(uid)
-                
+                print("\nuid: \(uid)\n")
                 loginManager.updateCurrentUser()
 
             }

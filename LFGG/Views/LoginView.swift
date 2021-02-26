@@ -21,15 +21,20 @@ struct LoginView: View {
     
     var body: some View {
                 VStack{
+                    Text("Welcome to LFGG!")
+                        .font(.title2)
+                        .fontWeight(.light)
                     Spacer()
                     TextField("Email", text: $email)
-                        .padding(.vertical)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                    
                     SecureField("Password", text: $password)
                         .textContentType(.password)
-                        .padding(.vertical)
-                    
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
                     
                     Button("Sign in"){
                         signInUser()
@@ -59,15 +64,12 @@ struct LoginView: View {
                     email = ""
                     password = ""
                 } else {
-                    
                     let errorMessage: String = "\(err)"
                     
                     alert = Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
                     showingAlert = true
-                    
                 }
             }
-            
         } else {
             alert = Alert(title: Text("Error"), message: Text("Fields can't be empty"), dismissButton: .default(Text("Ok")))
             showingAlert = true

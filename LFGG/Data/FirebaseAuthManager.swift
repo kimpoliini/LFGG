@@ -17,7 +17,7 @@ class FirebaseAuthManager {
             if let auth = authResult?.user{
                 print(auth.uid)
                 //add user to database
-                db.collection("users").document(auth.uid).setData(["username" : user.username!, "email" : user.email!], merge: true)
+                db.collection("users").document(auth.uid).setData(["displayName" : user.displayName!, "username" : user.username!, "email" : user.email!], merge: true)
                 
                 completionBlock(true)
             } else {

@@ -9,9 +9,9 @@ import SwiftUI
 import Firebase
 
 struct TabFriendsList: View {
-//    var friends = addMockFriends(20)
     let db = Firestore.firestore()
     @State var friends = [String]()
+    @EnvironmentObject var loginManager: LoginManager
     
     var body: some View {
         List(){
@@ -19,24 +19,28 @@ struct TabFriendsList: View {
                     RowViewFriend(name: friend)
             }
         }
+        .navigationTitle("Friends")
         .onAppear(){
-            
-            
-            db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").getDocuments(){ (snapshot, err) in
-                if let err = err{
-                    print(err)
-                } else {
-                    friends.removeAll()
-
-                    for document in snapshot!.documents {
-                        let friend = document["username"] as! String
-                        friends.append(friend)
+            if loginManager.isLoggedIn{
+                loginManager.isGettingData = true
+                print(loginManager.isGettingData)
+                db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").getDocuments(){ (snapshot, err) in
+                    if let err = err{
+                        print(err)
+                    } else {
+                        friends.removeAll()
+                        
+                        for document in snapshot!.documents {
+                            let friend = document["username"] as! String
+                            friends.append(friend)
+                        }
+                        
+                        loginManager.isGettingData = false
+                        print(loginManager.isGettingData)
                     }
                 }
             }
-            
         }
-        .navigationTitle("Friends")
 
     }
 }
