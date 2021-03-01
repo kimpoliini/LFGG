@@ -11,14 +11,23 @@ import Firebase
 struct TabFriendsList: View {
     let db = Firestore.firestore()
     @State var friends = [String]()
+    @State var hasFriends = true
     @EnvironmentObject var loginManager: LoginManager
     
+    
     var body: some View {
-        List(){
-            ForEach(friends, id: \.self){ friend in
-                    RowViewFriend(name: friend)
+        VStack {
+            if hasFriends {
+                List(){
+                    ForEach(friends, id: \.self){ friend in
+                        RowViewFriend(name: friend)
+                    }
+                }
+            } else {
+                Text("You have no friends :(")
             }
         }
+        
         .navigationTitle("Friends")
         .onAppear(){
             if loginManager.isLoggedIn{
@@ -33,6 +42,10 @@ struct TabFriendsList: View {
                         for document in snapshot!.documents {
                             let friend = document["username"] as! String
                             friends.append(friend)
+                        }
+                        
+                        if friends.isEmpty {
+                            hasFriends = false
                         }
                         
                         loginManager.isGettingData = false

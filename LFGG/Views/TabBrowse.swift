@@ -22,7 +22,7 @@ struct TabBrowse: View {
                             Image(systemName: "magnifyingglass")
                         })
                     
-                    TextField("Search for users, games etc", text: $searchText)
+                    TextField("Search for @users, games etc", text: $searchText)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -97,10 +97,11 @@ struct TabBrowse: View {
                             label: {
                                 ZStack{
                                     
-                                    Color.gray
+                                    AppColor.windowsBlue
                                         .frame(width: 160, height: 160, alignment: .center)
-                                    Image(systemName: "desktopcomputer")
+                                    Image("pcicon")
                                         .resizable()
+                                        .renderingMode(.template)
                                         .foregroundColor(.white)
                                         .scaledToFit()
                                         .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -115,20 +116,6 @@ struct TabBrowse: View {
             .navigationTitle("Browse")
             .padding()
     }
-    
-    //    func getGames(mode: String, completion:(_ games:[Game]) -> Void)  {
-    //        var gameList = [Game]()
-    //        db.collection("games").getDocuments(){ (snapshot, err) in
-    //            if let err = err{
-    //                print("Error getting documents: \(err)")
-    //            } else {
-    //                for document in snapshot!.documents {
-    //                    print("\(document.documentID) => \(document.data())")
-    //                }
-    //            }
-    //        }
-    //        completion(gameList)
-    //    }
     
 }
 
@@ -166,7 +153,7 @@ struct FindGameBy: View {
         case "switch":
             return AppColor.switchRed
         case "pc":
-            return .gray
+            return AppColor.windowsBlue
         default:
             return .white
         }
@@ -180,7 +167,7 @@ struct FindGameBy: View {
         case "switch":
             return "switchlogo"
         case "pc":
-            return ""
+            return "pcicon"
         default:
             return ""
         }

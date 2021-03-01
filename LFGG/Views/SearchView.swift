@@ -7,64 +7,69 @@
 
 import SwiftUI
 import Firebase
+import URLImage
 
 struct SearchView: View {
     var query: String
     let db = Firestore.firestore()
     @State var users = [User]()
+    @State var listGames = [RawgGame]()
     
     var body: some View {
-        List(){
-            ForEach(users, id: \.self){ user in
-                RowViewUser(user: user)
+        VStack{
+            List(){
+                Text("Users").bold()
+                ForEach(users, id: \.self){ user in
+                    RowViewUser(user: user)
+                    //                RowViewUser(user: User(displayName: user.name))
+                }
+                Text("Games").bold()
+                ForEach(listGames, id: \.self){ game in
+                    RowViewGame(game: game)
+                    
+                }
             }
             
-            
         }.onAppear(){
-//            users = getUsers()
-            //placeholder for a function because i cant seem to figure out how to do it otherwise
-            
-            db.collection("users")
-                .whereField("username", isGreaterThanOrEqualTo: query)
-                .whereField("username", isLessThanOrEqualTo: query + "\u{f8ff}")
-                .getDocuments() { (snapshot, err) in
-                    if let err = err{
-                        print("Error getting documents: \(err)")
-                    } else {
-                        for document in snapshot!.documents {
-                            let username = document["username"] as! String
-                            let user = User(uid: document.documentID, username: username)
-                            
-                            users.append(user)
-                            print(user)
-                            
-                        }
+            let rawg = Rawg()
+            rawg.requestGames(){ games in
+                if let games = games {
+                    for game in games{
+                        listGames.append(game)
                     }
                 }
+            }
+            
+            getUsers(){ users in
+                if !users.isEmpty {
+                    for user in users {
+                        self.users.append(user)
+                    }
+                }
+            }
         }
     }
     
-//    func getUsers() -> [String]{
-//        var userList = [String]()
-//
-//        db.collection("users")
-//            .whereField("username", isGreaterThanOrEqualTo: query)
-//            .getDocuments() { (snapshot, err) in
-//                if let err = err{
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in snapshot!.documents {
-//                        let username = document["username"] as! String
-//                        let user = User(uid: document.documentID, username: username)
-//
-////                        userList.append(user)
-//                    }
-//                }
-//            }
-        
-        
-//        return userList
-//    }
+    func getUsers(completion: @escaping (_ listUsers: [User]) -> Void){
+        var userList = [User]()
+
+        db.collection("users")
+            .whereField("username", isGreaterThanOrEqualTo: query)
+            .getDocuments() { (snapshot, err) in
+                if let err = err{
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in snapshot!.documents {
+                        let displayName = document["displayName"] as! String
+                        let username = document["username"] as! String
+                        let user = User(uid: document.documentID, displayName: displayName, username: username)
+                        
+                        userList.append(user)
+                    }
+                    completion(userList)
+                }
+            }
+        }
     
 }
 
@@ -74,12 +79,13 @@ struct RowViewUser: View {
     
     var body: some View {
         HStack{
-            Text(user.username!)
+            Text(user.displayName!)
+            
             Spacer()
             
             Button(action: {
                 addFriend(user: user)
-                isButtonDisabled = false
+                isButtonDisabled = true
                 
             }, label: {
                 
@@ -91,6 +97,38 @@ struct RowViewUser: View {
             }).disabled(isButtonDisabled)
             
         }
+    }
+}
+
+struct RowViewGame: View {
+    var game: RawgGame
+    
+    var body: some View{
+        VStack(spacing: 0){
+            ZStack{
+                Color(red: 20.0/256, green: 80.0/256, blue: 70.0/256)
+                
+                HStack{
+                    Text(game.name)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }
+                .padding(.horizontal)
+            }
+            .frame(height: 30)
+                        
+            URLImage(url: URL(string: game.background_image)!) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    
+                
+            }
+            
+        }
+        .frame(width: 320, height: 160, alignment: .top)
+        .cornerRadius(8.0)
+        .padding(4.0)
     }
 }
 

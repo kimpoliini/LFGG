@@ -59,10 +59,13 @@ struct LoginView: View {
             authManager.signInUser(email: email, password: password){ (success, err) in
                 
                 if (success) {
-                    loginManager.updateCurrentUser()
-                    loginManager.isLoggedIn = true
-                    email = ""
-                    password = ""
+                    loginManager.updateCurrentUser(){ success in
+                        if success{
+                            loginManager.isLoggedIn = true
+                            email = ""
+                            password = ""
+                        }
+                    }
                 } else {
                     let errorMessage: String = "\(err)"
                     

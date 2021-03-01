@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,10 @@
 		3CEFA9F025E51CE700227035 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFA9EF25E51CE700227035 /* LoginManager.swift */; };
 		3CEFA9F525E97C6200227035 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFA9F425E97C6200227035 /* EditProfileView.swift */; };
 		3CEFA9FA25E981F300227035 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFA9F925E981F300227035 /* Profile.swift */; };
+		3CEFA9FF25ED211200227035 /* Rawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFA9FE25ED211200227035 /* Rawg.swift */; };
+		3CEFAA0425ED217400227035 /* RawgGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA0325ED217400227035 /* RawgGame.swift */; };
+		3CEFAA0925ED23DE00227035 /* RawgGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA0825ED23DE00227035 /* RawgGames.swift */; };
+		3CEFAA1325ED767500227035 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3CEFAA1225ED767500227035 /* URLImage */; };
 		3CEFC65425CF53E000BA1EDF /* LFGGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */; };
 		3CEFC65625CF53E000BA1EDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65525CF53E000BA1EDF /* ContentView.swift */; };
 		3CEFC65825CF53E400BA1EDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC65725CF53E400BA1EDF /* Assets.xcassets */; };
@@ -57,6 +61,9 @@
 		3CEFA9EF25E51CE700227035 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3CEFA9F425E97C6200227035 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		3CEFA9F925E981F300227035 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3CEFA9FE25ED211200227035 /* Rawg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rawg.swift; sourceTree = "<group>"; };
+		3CEFAA0325ED217400227035 /* RawgGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgGame.swift; sourceTree = "<group>"; };
+		3CEFAA0825ED23DE00227035 /* RawgGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgGames.swift; sourceTree = "<group>"; };
 		3CEFC65025CF53E000BA1EDF /* LFGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGGApp.swift; sourceTree = "<group>"; };
 		3CEFC65525CF53E000BA1EDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEFAA1325ED767500227035 /* URLImage in Frameworks */,
 				1DFBF949E12E23A8C94CA8CF /* Pods_LFGG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +127,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CEFAA0D25ED277100227035 /* Rawg */ = {
+			isa = PBXGroup;
+			children = (
+				3CEFA9FE25ED211200227035 /* Rawg.swift */,
+				3CEFAA0325ED217400227035 /* RawgGame.swift */,
+				3CEFAA0825ED23DE00227035 /* RawgGames.swift */,
+			);
+			path = Rawg;
+			sourceTree = "<group>";
+		};
 		3CEFC64725CF53E000BA1EDF = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +218,7 @@
 		3CEFC72425D4028200BA1EDF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3CEFAA0D25ED277100227035 /* Rawg */,
 				3CEFC70B25D3F16700BA1EDF /* AppColor.swift */,
 				3CEFA9EF25E51CE700227035 /* LoginManager.swift */,
 				3CEFC72525D4029000BA1EDF /* User.swift */,
@@ -252,6 +271,9 @@
 			dependencies = (
 			);
 			name = LFGG;
+			packageProductDependencies = (
+				3CEFAA1225ED767500227035 /* URLImage */,
+			);
 			productName = LFGG;
 			productReference = 3CEFC65025CF53E000BA1EDF /* LFGG.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +348,9 @@
 				Base,
 			);
 			mainGroup = 3CEFC64725CF53E000BA1EDF;
+			packageReferences = (
+				3CEFAA1125ED767500227035 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 3CEFC65125CF53E000BA1EDF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -472,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEFAA0925ED23DE00227035 /* RawgGames.swift in Sources */,
 				3CEFA9FA25E981F300227035 /* Profile.swift in Sources */,
 				3CEFC65625CF53E000BA1EDF /* ContentView.swift in Sources */,
 				3CEFC79F25D535FD00BA1EDF /* Game.swift in Sources */,
@@ -479,7 +505,9 @@
 				3CEFC65425CF53E000BA1EDF /* LFGGApp.swift in Sources */,
 				3CEFC70C25D3F16800BA1EDF /* AppColor.swift in Sources */,
 				3CEFC71B25D3F51900BA1EDF /* TabBrowse.swift in Sources */,
+				3CEFAA0425ED217400227035 /* RawgGame.swift in Sources */,
 				3CEFA9F025E51CE700227035 /* LoginManager.swift in Sources */,
+				3CEFA9FF25ED211200227035 /* Rawg.swift in Sources */,
 				3CEFC72625D4029000BA1EDF /* User.swift in Sources */,
 				3CEFC7AF25DC948900BA1EDF /* LoginView.swift in Sources */,
 				3CEFC72025D3F59700BA1EDF /* TabFeed.swift in Sources */,
@@ -808,6 +836,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3CEFAA1125ED767500227035 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3CEFAA1225ED767500227035 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CEFAA1125ED767500227035 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CEFC64825CF53E000BA1EDF /* Project object */;
 }

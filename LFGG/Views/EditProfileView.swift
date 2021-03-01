@@ -56,9 +56,6 @@ struct EditProfileView: View {
         .navigationTitle("Edit profile")
         .padding()
         .onAppear(){
-            loginManager.updateCurrentUser()
-            
-            //make these fields update after doing updateCurrentUser()
             displayName = loginManager.currentUser!.displayName!
             profileDescription = loginManager.currentUserProfile!.description!
         }

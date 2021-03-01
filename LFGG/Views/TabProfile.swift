@@ -93,40 +93,43 @@ struct TabProfile: View {
         .navigationTitle("Profile")
         .padding()
         .onAppear(){
-            let userRef = db.collection("users")
-                .document(Auth.auth()
-                .currentUser!.uid)
-            
-            userRef.getDocument(){ document, err in
-                if let err = err {
-                    print(err)
-                } else {
-                    let dbDisplayName = document!["displayName"] as! String
-                    let dbUsername = document!["username"] as! String
-                    
-                    currentUser = User(uid: Auth.auth().currentUser!.uid, displayName: dbDisplayName, username: dbUsername)
-                }
+            loginManager.updateCurrentUser(){ success in
+                print(success)
             }
-            userRef.collection("profile")
-                .document("profile")
-                .getDocument(){ document, err in
-                if let err = err {
-                    print(err)
-                } else {
-                    let description = document!["description"] as! String
-                    let backgroundColorString = document!["backgroundColor"] as! String
-                    var backgroundColor: Color {
-                        switch backgroundColorString {
-                        case "lightBlue":
-                            return Color(.systemBlue)
-                        default:
-                            return Color(.systemBlue)
-                        }
-                    }
-                    currentUserProfile = Profile(description: description, backgroundColor: backgroundColor)
-                    
-                }
-            }
+//            let userRef = db.collection("users")
+//                .document(Auth.auth()
+//                .currentUser!.uid)
+//
+//            userRef.getDocument(){ document, err in
+//                if let err = err {
+//                    print(err)
+//                } else {
+//                    let dbDisplayName = document!["displayName"] as! String
+//                    let dbUsername = document!["username"] as! String
+//
+//                    currentUser = User(uid: Auth.auth().currentUser!.uid, displayName: dbDisplayName, username: dbUsername)
+//                }
+//            }
+//            userRef.collection("profile")
+//                .document("profile")
+//                .getDocument(){ document, err in
+//                if let err = err {
+//                    print(err)
+//                } else {
+//                    let description = document!["description"] as! String
+//                    let backgroundColorString = document!["backgroundColor"] as! String
+//                    var backgroundColor: Color {
+//                        switch backgroundColorString {
+//                        case "lightBlue":
+//                            return Color(.systemBlue)
+//                        default:
+//                            return Color(.systemBlue)
+//                        }
+//                    }
+//                    currentUserProfile = Profile(description: description, backgroundColor: backgroundColor)
+//
+//                }
+//            }
             
         }
     }

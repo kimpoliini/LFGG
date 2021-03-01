@@ -16,8 +16,9 @@ class LoginManager: ObservableObject{
     @Published var isGettingData = false
     let db = Firestore.firestore()
     
-    func updateCurrentUser(){
+    func updateCurrentUser(completionBlock: @escaping (_ success: Bool) -> Void){
         self.isLoggedIn = true
+        var dbOperations = 2
         
         let userRef = db.collection("users")
             .document(Auth.auth()
@@ -34,6 +35,11 @@ class LoginManager: ObservableObject{
                 self.currentUser = User(uid: Auth.auth().currentUser?.uid,
                                         displayName: displayName,
                                         username: username, email: email)
+                dbOperations -= 1
+                print(dbOperations)
+                if dbOperations == 0 {
+                    completionBlock(true)
+                }
             }
         }
         
@@ -55,7 +61,16 @@ class LoginManager: ObservableObject{
                     }
                     self.currentUserProfile = Profile(description: description,
                                                       backgroundColor: backgroundColor)
+                    
+                    dbOperations -= 1
+                    print(dbOperations)
+                    if dbOperations == 0 {
+                        completionBlock(true)
+                    }
                 }
             }
     }
+    
+    
+    
 }

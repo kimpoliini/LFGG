@@ -45,9 +45,6 @@ struct ContentView: View {
                     Text("Profile")
                 }
             }
-            .onAppear(){
-                createExampleGames()
-            }
         } else {
             NavigationView(){
                 LoginView()
@@ -59,7 +56,9 @@ struct ContentView: View {
         .onAppear(){
             if let uid = Auth.auth().currentUser?.uid {
                 print("\nuid: \(uid)\n")
-                loginManager.updateCurrentUser()
+                loginManager.updateCurrentUser(){ success in
+                    print(success)
+                }
 
             }
         }
