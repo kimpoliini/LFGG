@@ -14,31 +14,34 @@ struct SearchView: View {
     let db = Firestore.firestore()
     @State var users = [User]()
     @State var listGames = [RawgGame]()
+    @EnvironmentObject var loginManager: LoginManager
     
     var body: some View {
         VStack{
             List(){
                 Text("Users").bold()
                 ForEach(users, id: \.self){ user in
-                    RowViewUser(user: user)
-                    //                RowViewUser(user: User(displayName: user.name))
+                    RowViewUser(user: user)                    
                 }
+                if users.isEmpty {
+                    Text("No users found for \(query)")
+                }
+                
+                VStack{}
+                
                 Text("Games").bold()
                 ForEach(listGames, id: \.self){ game in
-                    RowViewGame(game: game)
-                    
+                    RowViewGame(game: game, lm: loginManager,
+                                owned: loginManager.ownedGames.contains(where: { $0.slug == game.slug }),
+                                favourite: loginManager.favouriteGames.contains(where: { $0.slug == game.slug }))
+                }
+                if listGames.isEmpty {
+                    Text("No games found for \(query)")
                 }
             }
-            
         }.onAppear(){
-            let rawg = Rawg()
-            rawg.requestGames(){ games in
-                if let games = games {
-                    for game in games{
-                        listGames.append(game)
-                    }
-                }
-            }
+            users.removeAll()
+            listGames.removeAll()
             
             getUsers(){ users in
                 if !users.isEmpty {
@@ -47,6 +50,16 @@ struct SearchView: View {
                     }
                 }
             }
+            
+            let rawg = Rawg()
+            rawg.requestGames(query: query){ games in
+                if let games = games {
+                    for game in games{
+                        listGames.append(game)
+                    }
+                }
+            }
+            
         }
     }
     
@@ -69,7 +82,8 @@ struct SearchView: View {
                     completion(userList)
                 }
             }
-        }
+    }
+    
     
 }
 
@@ -102,40 +116,75 @@ struct RowViewUser: View {
 
 struct RowViewGame: View {
     var game: RawgGame
+    var lm: LoginManager
+    @State var owned: Bool
+    @State var favourite: Bool
     
     var body: some View{
         VStack(spacing: 0){
             ZStack{
-                Color(red: 20.0/256, green: 80.0/256, blue: 70.0/256)
+                AppColor.appRed
                 
                 HStack{
                     Text(game.name)
                     Spacer()
-                    Image(systemName: "chevron.right")
+
+                    //owned button
+                    Button {
+                        if owned {
+                            lm.removeGameFrom(owned: true, favourites: false, game: game)
+                        } else {
+                            lm.addGameTo(owned: true, favourites: false, game: game)
+                        }
+                        owned.toggle()
+                        
+                    } label: {
+                        Image(systemName: owned ? "checkmark.square.fill" : "checkmark.square")
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    //favourite button
+                    Button {
+                        if favourite {
+                            lm.removeGameFrom(owned: false, favourites: true, game: game)
+                        } else {
+                            lm.addGameTo(owned: false, favourites: true, game: game)
+                        }
+                        favourite.toggle()
+                        
+                    } label: {
+                        Image(systemName: favourite ? "heart.fill" : "heart")
+                    }.buttonStyle(PlainButtonStyle())
+                    
                 }
                 .padding(.horizontal)
             }
-            .frame(height: 30)
-                        
-            URLImage(url: URL(string: game.background_image)!) { image in
-                image
+            .frame(height: 35)
+            
+            if game.background_image != nil{
+                URLImage(url: URL(string: game.background_image != nil ? game.background_image! : "")!) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                }
+            } else {
+                Image(systemName: "gamecontroller.fill")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    
-                
+                    .aspectRatio(contentMode: .fit)
             }
             
         }
-        .frame(width: 320, height: 160, alignment: .top)
+        .frame(width: 340, height: 160, alignment: .top)
         .cornerRadius(8.0)
         .padding(4.0)
+        .onAppear(){
+        }
     }
 }
 
 func addFriend(user: User){
     let db = Firestore.firestore()
     
-    db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").document(user.uid!).setData(["username" : user.username!], merge: true)
+    db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").document(user.uid!).setData(["displayName" : user.displayName!, "username" : user.username!], merge: true)
 }
 
 struct SearchView_Previews: PreviewProvider {

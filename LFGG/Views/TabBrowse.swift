@@ -187,7 +187,7 @@ struct FindGameBy: View {
                     .padding()
                 
             }
-            .frame(width: .infinity, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .cornerRadius(12.0)
             
             

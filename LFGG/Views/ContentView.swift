@@ -30,6 +30,7 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                     Text("Browse")
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
                 
                 NavigationView(){
                     TabFriendsList()
@@ -54,31 +55,12 @@ struct ContentView: View {
         }
         .environmentObject(loginManager)
         .onAppear(){
-            if let uid = Auth.auth().currentUser?.uid {
-                print("\nuid: \(uid)\n")
-                loginManager.updateCurrentUser(){ success in
-                    print(success)
-                }
+            if (Auth.auth().currentUser?.uid) != nil {
+                loginManager.updateCurrentUser(){ (success) in }
+                loginManager.getOwnedandFavouriteGames { (success) in }
 
             }
         }
-    }
-    
-    func createExampleGames(){
-        db.collection("games").document("Minecraft").setData(
-            ["title" : "Minecraft",
-             "platforms" :["pc","switch","xbox","playstation"],
-             "genres": [Genre.adventure, Genre.openworld, Genre.sandbox]], merge: true)
-        
-        db.collection("games").document("Smash Bros Ultimate").setData(
-            ["title" : "Smash Bros Ultimate",
-             "platforms" : ["switch"],
-             "genres" : [Genre.fighting, Genre.competitive]], merge: true)
-        
-        db.collection("games").document("Example Console Exclusive").setData(
-            ["title" : "Example Console Exclusive",
-             "platforms" : ["xbox", "playstation"],
-             "genres" : [Genre.action, Genre.adventure, Genre.rpg]], merge: true)
     }
 }
 

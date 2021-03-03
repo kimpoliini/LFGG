@@ -10,8 +10,8 @@ import Foundation
 struct RawgGame: Codable, Hashable {
     let id = UUID()
     var name: String
-    var background_image: String
-//    var platforms: [String]
-//    var genres: [String]
-//    var imageUrl: String? = nil
+    var slug: String
+    var background_image: String? = nil
+    var platforms: [RawgPlatforms]
+    var genres = [RawgGenre]()
 }

@@ -9,9 +9,7 @@ import Foundation
 
 struct Game {
     var id = UUID()
-    var title: String
-    var platforms: [String]
-    var genres = [String]()
-    var headerImageUrl: String? = nil
-    var iconImageUrl: String? = nil    
+    var title: String? = nil
+    var slug: String
+    var backgroundImageUrl: String? = nil
 }
