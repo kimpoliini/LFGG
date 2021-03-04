@@ -21,7 +21,7 @@ struct SearchView: View {
             List(){
                 Text("Users").bold()
                 ForEach(users, id: \.self){ user in
-                    RowViewUser(user: user)                    
+                    RowViewUser(lm: loginManager, user: user)
                 }
                 if users.isEmpty {
                     Text("No users found for \(query)")
@@ -60,6 +60,7 @@ struct SearchView: View {
                 }
             }
             
+            loginManager.getOwnedandFavouriteGames { (success) in }
         }
     }
     
@@ -88,6 +89,7 @@ struct SearchView: View {
 }
 
 struct RowViewUser: View {
+    var lm: LoginManager
     var user: User
     @State var isButtonDisabled = false
     
@@ -98,7 +100,7 @@ struct RowViewUser: View {
             Spacer()
             
             Button(action: {
-                addFriend(user: user)
+                addFriend(lm: lm,user: user)
                 isButtonDisabled = true
                 
             }, label: {
@@ -133,8 +135,11 @@ struct RowViewGame: View {
                     Button {
                         if owned {
                             lm.removeGameFrom(owned: true, favourites: false, game: game)
+                            lm.getOwnedandFavouriteGames { (success) in print(lm.ownedGames)}
+
                         } else {
                             lm.addGameTo(owned: true, favourites: false, game: game)
+                            lm.getOwnedandFavouriteGames { (success) in print(lm.ownedGames)}
                         }
                         owned.toggle()
                         
@@ -146,8 +151,10 @@ struct RowViewGame: View {
                     Button {
                         if favourite {
                             lm.removeGameFrom(owned: false, favourites: true, game: game)
+                            lm.getOwnedandFavouriteGames { (success) in print(lm.ownedGames)}
                         } else {
                             lm.addGameTo(owned: false, favourites: true, game: game)
+                            lm.getOwnedandFavouriteGames { (success) in print(lm.favouriteGames)}
                         }
                         favourite.toggle()
                         
@@ -181,10 +188,20 @@ struct RowViewGame: View {
     }
 }
 
-func addFriend(user: User){
+func addFriend(lm: LoginManager, user: User){
     let db = Firestore.firestore()
     
-    db.collection("users").document(Auth.auth().currentUser!.uid).collection("friends").document(user.uid!).setData(["displayName" : user.displayName!, "username" : user.username!], merge: true)
+    db.collection("users")
+        .document(Auth.auth().currentUser!.uid)
+        .collection("friends")
+        .document(user.uid!)
+        .setData(["displayName" : user.displayName!, "username" : user.username!], merge: true)
+    
+    db.collection("users")
+        .document(user.uid!)
+        .collection("friends")
+        .document(Auth.auth().currentUser!.uid)
+        .setData(["displayName" : lm.currentUser!.displayName!, "username" : lm.currentUser!.username!], merge: true)
 }
 
 struct SearchView_Previews: PreviewProvider {

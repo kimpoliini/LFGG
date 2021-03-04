@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game {
+struct Game: Hashable {
     var id = UUID()
     var title: String? = nil
     var slug: String

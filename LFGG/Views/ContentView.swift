@@ -57,7 +57,9 @@ struct ContentView: View {
         .onAppear(){
             if (Auth.auth().currentUser?.uid) != nil {
                 loginManager.updateCurrentUser(){ (success) in }
-                loginManager.getOwnedandFavouriteGames { (success) in }
+                loginManager.getOwnedandFavouriteGames { (success) in
+                    print(loginManager.ownedGames)
+                }
 
             }
         }

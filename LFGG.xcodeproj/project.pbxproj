@@ -19,6 +19,8 @@
 		3CEFAA1825EFC99400227035 /* RawgPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA1725EFC99400227035 /* RawgPlatforms.swift */; };
 		3CEFAA2025EFC9F300227035 /* RawgPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA1F25EFC9F300227035 /* RawgPlatform.swift */; };
 		3CEFAA2525EFCEFE00227035 /* RawgGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA2425EFCEFE00227035 /* RawgGenre.swift */; };
+		3CEFAA2A25EFEDD100227035 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA2925EFEDD100227035 /* AddPostView.swift */; };
+		3CEFAA2F25EFEE2700227035 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFAA2E25EFEE2700227035 /* Post.swift */; };
 		3CEFC65425CF53E000BA1EDF /* LFGGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */; };
 		3CEFC65625CF53E000BA1EDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFC65525CF53E000BA1EDF /* ContentView.swift */; };
 		3CEFC65825CF53E400BA1EDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CEFC65725CF53E400BA1EDF /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		3CEFAA1725EFC99400227035 /* RawgPlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgPlatforms.swift; sourceTree = "<group>"; };
 		3CEFAA1F25EFC9F300227035 /* RawgPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgPlatform.swift; sourceTree = "<group>"; };
 		3CEFAA2425EFCEFE00227035 /* RawgGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgGenre.swift; sourceTree = "<group>"; };
+		3CEFAA2925EFEDD100227035 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		3CEFAA2E25EFEE2700227035 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3CEFC65025CF53E000BA1EDF /* LFGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CEFC65325CF53E000BA1EDF /* LFGGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFGGApp.swift; sourceTree = "<group>"; };
 		3CEFC65525CF53E000BA1EDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				3CEFC65525CF53E000BA1EDF /* ContentView.swift */,
+				3CEFAA2925EFEDD100227035 /* AddPostView.swift */,
 				3CECA47725DEE3AE008F4CB9 /* SearchView.swift */,
 				3CEFC71025D3F21300BA1EDF /* TabProfile.swift */,
 				3CEFC71525D3F3EA00BA1EDF /* TabFriendsList.swift */,
@@ -231,6 +236,7 @@
 				3CEFC70B25D3F16700BA1EDF /* AppColor.swift */,
 				3CEFA9EF25E51CE700227035 /* LoginManager.swift */,
 				3CEFC72525D4029000BA1EDF /* User.swift */,
+				3CEFAA2E25EFEE2700227035 /* Post.swift */,
 				3CEFC79E25D535FD00BA1EDF /* Game.swift */,
 				3CEFC7A325D558F600BA1EDF /* Genre.swift */,
 				3CEFC7A825DC91D800BA1EDF /* FirebaseAuthManager.swift */,
@@ -515,6 +521,7 @@
 				3CEFC70C25D3F16800BA1EDF /* AppColor.swift in Sources */,
 				3CEFAA2525EFCEFE00227035 /* RawgGenre.swift in Sources */,
 				3CEFC71B25D3F51900BA1EDF /* TabBrowse.swift in Sources */,
+				3CEFAA2F25EFEE2700227035 /* Post.swift in Sources */,
 				3CEFAA0425ED217400227035 /* RawgGame.swift in Sources */,
 				3CEFAA2025EFC9F300227035 /* RawgPlatform.swift in Sources */,
 				3CEFA9F025E51CE700227035 /* LoginManager.swift in Sources */,
@@ -528,6 +535,7 @@
 				3CECA47825DEE3AE008F4CB9 /* SearchView.swift in Sources */,
 				3CEFC7B725DC998200BA1EDF /* CreateAcountView.swift in Sources */,
 				3CEFC71125D3F21300BA1EDF /* TabProfile.swift in Sources */,
+				3CEFAA2A25EFEDD100227035 /* AddPostView.swift in Sources */,
 				3CEFC7A425D558F600BA1EDF /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

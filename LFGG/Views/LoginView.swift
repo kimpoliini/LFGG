@@ -64,6 +64,8 @@ struct LoginView: View {
                             loginManager.isLoggedIn = true
                             email = ""
                             password = ""
+                            loginManager.updateCurrentUser(){ (success) in }
+                            loginManager.getOwnedandFavouriteGames { (success) in }
                         }
                     }
                 } else {

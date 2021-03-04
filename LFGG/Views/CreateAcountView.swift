@@ -71,6 +71,7 @@ struct CreateAcountView: View {
                 if (success) {
                     message = "User was sucessfully created"
                     username = ""
+                    displayName = ""
                     email = ""
                     password = ""
                     
